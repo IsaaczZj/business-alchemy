@@ -13,7 +13,5 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  return <div className="bg-background/95 backdrop-blur">
-    
-  </div>;
+  return <div></div>;
 }

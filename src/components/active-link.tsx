@@ -17,8 +17,8 @@ export default function ActiveLink({
     <Link
       href={href}
       className={cn(
-        "font-medium transition-colors hover:text-blue-500",
-        pathname === href ? "text-blue-500" : "text-muted-foreground "
+        "font-medium transition-colors",
+        pathname === href ? "text-blue-200" : "text-gray-100",
       )}
       {...props}
     >

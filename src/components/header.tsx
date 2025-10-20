@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 w-full border-b border-white/20 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex py-4 items-center justify-between">
+        <div className="flex items-center justify-between py-4">
           <Logo />
           <nav className="flex items-center gap-6">
             <ActiveLink href="/">Inicio</ActiveLink>
