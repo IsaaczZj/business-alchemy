@@ -2,13 +2,14 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 
 import ActiveLink from "./active-link";
+import Logo from "./ui/logo";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 w-full border-b border-white/20 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/">Business Alchemy</Link>
+        <div className="flex py-4 items-center justify-between">
+          <Logo />
           <nav className="flex items-center gap-6">
             <ActiveLink href="/">Inicio</ActiveLink>
             <ActiveLink href="/blog">Blog</ActiveLink>
