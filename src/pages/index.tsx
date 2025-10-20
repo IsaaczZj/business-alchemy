@@ -1,9 +1,13 @@
-import HeroSection from "@/components/hero-section";
+import FeatureSection from "@/components/landing-page/feature-section";
+import HeroSection from "@/components/landing-page/hero-section";
 
 export default function Home() {
-  return <div>
-    <article className="flex flex-col">
-      <HeroSection/>
-    </article>
-  </div>;
+  return (
+    <>
+      <article className="flex flex-col">
+        <HeroSection />
+        <FeatureSection/>
+      </article>
+    </>
+  );
 }
