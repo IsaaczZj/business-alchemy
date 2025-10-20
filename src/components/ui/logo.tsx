@@ -15,7 +15,7 @@ export default function Logo({ isName = true }: LogoProps) {
           alt="Logo da aplicação Business Alchemy"
         />
         {isName && (
-          <h2 className="text-xl font-semibold tracking-wide">
+          <h2 className="text-xs font-semibold tracking-wide sm:text-lg md:text-xl">
             Bussines Alchemy
           </h2>
         )}

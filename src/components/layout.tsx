@@ -16,7 +16,7 @@ export default function Layout({ children }: LayoutProps) {
       className={`${inter.className} dark relative flex min-h-screen flex-col`}
     >
       <Header />
-      <main className="mb-12 flex flex-1 flex-col">{children}</main>
+      <main className="mb-12 flex flex-1 flex-col pt-20">{children}</main>
       <Footer />
     </div>
   );
