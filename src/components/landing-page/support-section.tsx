@@ -8,8 +8,10 @@ const ptSansCaption = PT_Sans_Caption({
 
 export default function SupportSection() {
   return (
-    <section className="bg-gray-700 py-10 pb-20">
-      <div className="container">
+    <section className="relative bg-gray-700 py-10 pb-20">
+      <div className="absolute inset-0 hidden bg-[url('/background-features.svg')] bg-cover bg-center bg-no-repeat opacity-90 md:block" />
+
+      <div className="relative container">
         <h2
           className={`${ptSansCaption.className} text-heading-xl mb-12 text-center text-balance text-gray-100`}
         >

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./header";
 import Footer from "./footer";
-import { Inter } from "next/font/google";
+import { Inter, PT_Sans_Caption } from "next/font/google";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,7 +9,10 @@ interface LayoutProps {
 
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  variable:"--font-inter"
 });
+
 export default function Layout({ children }: LayoutProps) {
   return (
     <div
