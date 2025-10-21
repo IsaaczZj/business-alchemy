@@ -39,7 +39,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-        <div className="relative order-first hidden h-[20rem] items-center justify-center md:order-last md:flex md:h-full">
+        <div className="relative order-first hidden h-[20rem] items-center justify-center md:order-last md:flex md:h-full md:items-center">
           <Image
             width={200}
             height={400}

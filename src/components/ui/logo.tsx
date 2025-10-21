@@ -9,8 +9,9 @@ export default function Logo({ isName = true }: LogoProps) {
     <div>
       <Link href="/" className="flex items-center gap-2">
         <Image
-          width={60}
-          height={32}
+          width={64}
+          height={64}
+          className="h-10 w-10"
           src="/logo-icon.svg"
           alt="Logo da aplicação Business Alchemy"
         />

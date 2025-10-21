@@ -28,10 +28,10 @@ export default function FeatureSection() {
           <span className="text-body-tag mb-4 block w-fit rounded-sm bg-blue-400 px-3 py-1.5 text-blue-200 uppercase">
             Personalizável
           </span>
-          <h2 className="text-heading-lg md:w-80  text-gray-100">
+          <h2 className="text-heading-lg text-gray-100 md:w-80">
             Tenha uma loja online personalizada com a cara da sua marca
           </h2>
-          <Button className="mt-auto flex w-full items-center gap-2 rounded-xl md:w-fit h-14">
+          <Button className="mt-auto flex h-14 w-full items-center gap-2 rounded-xl md:w-fit">
             Criar loja grátis
             <ArrowRight className="size-4" />
           </Button>
