@@ -1,8 +1,3 @@
-import CallToActionSection from "@/components/landing-page/call-to-action-section";
-import CustomerStorySection from "@/components/landing-page/customer-story-section";
-import FeatureSection from "@/components/landing-page/feature-section";
-import HeroSection from "@/components/landing-page/hero-section";
-import SupportSection from "@/components/landing-page/support-section";
 import LayoutLandingPage from "@/template/layout-landing-page";
 
 export default function Home() {

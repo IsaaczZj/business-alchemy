@@ -1,5 +1,8 @@
-import Header from "@/components/header";
+import BlogHeader from "@/components/blog/blog-header";
 
 export default function Blog() {
-  return <div></div>;
+  return <div className="flex h-full grow flex-col mt-15 container">
+    <BlogHeader/>
+
+  </div>;
 }
