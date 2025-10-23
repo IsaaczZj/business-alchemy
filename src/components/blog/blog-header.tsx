@@ -1,6 +1,12 @@
-import SearchPost from "./search-post";
+import { useRouter } from "next/router";
+import PostSearchInput from "./post-search-input";
 
 export default function BlogHeader() {
+  const router = useRouter();
+  const pageTitle = router.query.q
+    ? `Resultados de busca para ${router.query.q}`
+    : "Dicas e estratégias para impulsionar seu negócio";
+
   return (
     <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div className="flex flex-col gap-3">
@@ -9,11 +15,13 @@ export default function BlogHeader() {
         </span>
 
         <h1 className="max-w-xl text-start text-5xl text-balance md:text-left">
-          Dicas e estratégias para impulsionar seu negócio
+          {router.query.q && pageTitle.length >= 50
+            ? `${pageTitle.slice(0, 50)}...`
+            : pageTitle}
         </h1>
       </div>
 
-      <SearchPost />
+      <PostSearchInput />
     </header>
   );
 }
