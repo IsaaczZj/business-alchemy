@@ -13,7 +13,7 @@ export default function Header() {
           <nav className="flex items-center gap-6">
             <ActiveLink href="/">Inicio</ActiveLink>
             <ActiveLink href="/blog">Blog</ActiveLink>
-            <Button variant="secondary" className="rounded-full" asChild>
+            <Button variant="secondary" className="rounded-full bg-blue-200 text-white hover:bg-blue-300" asChild>
               <Link href="/start">Começar</Link>
             </Button>
           </nav>

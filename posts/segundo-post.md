@@ -2,7 +2,7 @@
 title: 5 motivos para escolher o Bussiness Alchemy
 description: O Bussiness Alchemy oferece tudo o que você precisa para criar uma loja online eficiente e personalizada. Desde a integração com sistemas de pagamento até a criação de páginas de vendas, veja por que milhares de empreendedores escolhem nossa plataforma.
 date: 2025-10-25 15:33:00
-image: /assets/segundo-post.png
+image: /assets/segundo-post.jpg
 author:
   name: Dulce Westervelt
   avatar: /customer-2.svg
