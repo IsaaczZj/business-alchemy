@@ -14,7 +14,7 @@ export default function BlogHeader() {
           Blog
         </span>
 
-        <h1 className="max-w-xl text-start text-5xl text-balance md:text-left">
+        <h1 className="max-w-xl text-start text-lg text-balance sm:text-2xl md:text-left md:text-5xl">
           {router.query.q && pageTitle.length >= 50
             ? `${pageTitle.slice(0, 50)}...`
             : pageTitle}

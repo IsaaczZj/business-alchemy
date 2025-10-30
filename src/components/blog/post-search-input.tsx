@@ -26,30 +26,38 @@ export default function PostSearchInput() {
     });
   };
 
+  function handleClearInput() {
+    router.push("/blog", undefined, {
+      shallow: true,
+      scroll: false,
+    });
+  }
+
   return (
     <form className="group relative" onSubmit={handleSearchPost}>
-      <Search
-        className={`${cn(
-          "absolute top-1/2 left-3 size-4 -translate-y-1/2 text-gray-300 transition-colors duration-200 group-focus-within:text-blue-300",
-          query && "text-blude-300",
-        )}`}
-      />
-      {query && (
-        <CircleX
-          className="absolute top-1/2 right-3 size-4 -translate-y-1/2 cursor-pointer text-gray-300 transition-colors duration-200"
-          onClick={() =>
-            router.push("/blog", undefined, { shallow: true, scroll: false })
-          }
+      <div className="flex items-center justify-between rounded-md border border-gray-400 focus-within:right-1 focus-within:border-blue-300 focus-within:ring-blue-300 md:max-w-xs">
+        <Search
+          className={`${cn(
+            "ml-2 size-4 text-gray-300 transition-colors duration-200 group-focus-within:text-blue-300",
+            query && "text-blude-300",
+          )}`}
         />
-      )}
 
-      <input
-        type="text"
-        placeholder="Buscar"
-        value={query}
-        onChange={handleQueryChange}
-        className="text-body-sm w-full rounded-md border border-gray-400 bg-transparent py-2 pl-9 text-gray-100 transition-all duration-200 outline-none placeholder:text-gray-300 focus-within:right-1 focus-within:border-blue-300 focus-within:ring-blue-300"
-      />
+        <input
+          type="text"
+          placeholder="Buscar"
+          value={query}
+          onChange={handleQueryChange}
+          className="text-body-sm w-full bg-transparent px-2 py-2 text-gray-100 transition-all duration-200 outline-none placeholder:text-gray-300"
+        />
+        <div className="w-10">
+          {query && (
+            <button title="Limpar" type="button" onClick={handleClearInput}>
+              <CircleX className="mr-2 size-3 cursor-pointer text-gray-300 transition-colors duration-200 hover:scale-110 hover:text-blue-300" />
+            </button>
+          )}
+        </div>
+      </div>
     </form>
   );
 }

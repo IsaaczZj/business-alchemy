@@ -1,11 +1,11 @@
 ---
-title: Transformando seu negócio em uma loja virtual
-description: Se você está buscando uma maneira simples e eficaz de vender seus produtos online, o Site.Set é a solução perfeita para você.
-date: 2025-10-22 10:20:00
-image: /assets/primeiro-post.png
+title: 5 motivos para escolher o Bussiness Alchemy
+description: O Bussiness Alchemy oferece tudo o que você precisa para criar uma loja online eficiente e personalizada. Desde a integração com sistemas de pagamento até a criação de páginas de vendas, veja por que milhares de empreendedores escolhem nossa plataforma.
+date: 2025-10-25 15:33:00
+image: /assets/segundo-post.png
 author:
-  name: Aspen Dokidis
-  avatar: /customer-1.svg
+  name: Dulce Westervelt
+  avatar: /customer-2.svg
 ---
 
 Se você está buscando uma maneira simples e eficaz de vender seus produtos online, o Site.Set é a solução perfeita para você. Criar uma loja virtual de sucesso nunca foi tão fácil. Com nossa plataforma intuitiva, você pode criar um site profissional para sua loja em minutos, sem precisar de conhecimentos técnicos.
