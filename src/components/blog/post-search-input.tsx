@@ -35,12 +35,19 @@ export default function PostSearchInput() {
 
   return (
     <form className="group relative" onSubmit={handleSearchPost}>
-      <div className="flex items-center justify-between rounded-md border border-gray-400 focus-within:right-1 focus-within:border-blue-300 focus-within:ring-blue-300 md:max-w-xs">
+      <div className={cn(
+        "flex items-center justify-between rounded-md border transition-colors duration-200 md:max-w-xs",
+        query 
+          ? "border-blue-300 ring-1 ring-blue-300" 
+          : "border-gray-400 focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-300"
+      )}>
         <Search
-          className={`${cn(
-            "ml-2 size-4 text-gray-300 transition-colors duration-200 group-focus-within:text-blue-300",
-            query && "text-blude-300",
-          )}`}
+          className={cn(
+            "ml-2 size-4 transition-colors duration-200",
+            query 
+              ? "text-blue-300" 
+              : "text-gray-300 group-focus-within:text-blue-300"
+          )}
         />
 
         <input

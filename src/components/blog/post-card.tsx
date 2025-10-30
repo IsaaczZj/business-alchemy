@@ -36,7 +36,7 @@ export default function PostCard({
           </div>
           <Image
             src={`${imageURL}`}
-            alt=""
+            alt={title}
             className="h-40 w-full rounded-md object-cover object-center"
             width={288}
             height={144}
