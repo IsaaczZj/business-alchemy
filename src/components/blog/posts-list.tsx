@@ -1,15 +1,19 @@
-import { allPosts, Post } from "contentlayer/generated";
+import { Post } from "contentlayer/generated";
 import PostCard from "./post-card";
 import { useRouter } from "next/router";
 import { Inbox } from "lucide-react";
 
-export default function PostList() {
+export type PostListProps = {
+  posts:Post[]
+}
+
+export default function PostList({posts}:PostListProps) {
   const router = useRouter();
   const q = router.query.q;
-  const filteredPosts = allPosts.filter((post) =>
+  const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(String(q).toLowerCase()),
   );
-  const posts = q ? filteredPosts : allPosts;
+  const postsList = q ? filteredPosts : posts;
 
   return (
     <div className="grid grid-cols-1 gap-y-6 py-12 md:grid-cols-2 lg:grid-cols-3">
@@ -19,7 +23,7 @@ export default function PostList() {
           <p className="text-gray-300">Nenhum post encontrado</p>
         </div>
       ) : (
-        posts.map((post) => (
+        postsList.map((post) => (
           <PostCard
             key={post._id}
             title={post.title}
