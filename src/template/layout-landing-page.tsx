@@ -11,7 +11,6 @@ export default function LayoutLandingPage() {
       <FeatureSection />
       <SupportSection />
       <CustomerStorySection />
-      <CallToActionSection />
     </article>
   );
 }

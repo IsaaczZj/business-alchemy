@@ -109,8 +109,8 @@ export default function PostPage() {
           </article>
 
           <aside className="space-y-6">
-            <h2 className="text-heading-xs">Compartilhar</h2>
-            <div className="space-y-2">
+            <h2 className="hidden md:block md:text-heading-xs">Compartilhar</h2>
+            <div className="flex flex-col gap-2">
               {shareButtons.map((provider, i) => (
                 <button
                   onClick={() => provider.action()}
