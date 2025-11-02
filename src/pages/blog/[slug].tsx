@@ -6,7 +6,10 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import { useShare } from "@/hooks/use-share";
 import { allPosts } from "contentlayer/generated";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -17,6 +20,13 @@ export default function PostPage() {
   const post = allPosts.find(
     (post) => post.slug.toLowerCase() === slug.toLowerCase(),
   );
+
+  const postUrl = `https://bussiness-achemy/blog/${slug}`;
+  const { shareButtons } = useShare({
+    url: postUrl,
+    title: post?.title,
+    text: post?.description,
+  });
 
   if (!post) {
     return (
@@ -37,7 +47,10 @@ export default function PostPage() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/blog" className="text-action-sm">
+                <Link
+                  href="/blog"
+                  className="text-action-sm border-b border-transparent hover:border-b hover:border-blue-200"
+                >
                   Blog
                 </Link>
               </BreadcrumbLink>
@@ -94,6 +107,21 @@ export default function PostPage() {
               <Markdown content={post.body.raw} />
             </div>
           </article>
+
+          <aside className="space-y-6">
+            <h2 className="text-heading-xs">Compartilhar</h2>
+            <div className="space-y-2">
+              {shareButtons.map((provider, i) => (
+                <button
+                  onClick={() => provider.action()}
+                  className="group flex w-full items-center gap-2 rounded-md border border-gray-400 px-4 py-3 transition-colors hover:cursor-pointer hover:border-blue-200 hover:text-blue-200"
+                >
+                  <div>{provider.icon}</div>
+                  <span>{provider.name}</span>
+                </button>
+              ))}
+            </div>
+          </aside>
         </div>
       </div>
     </main>
