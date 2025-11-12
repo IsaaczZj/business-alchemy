@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useEffect, useState } from "react";
 
 type UseClipboardProps = {
@@ -30,7 +31,7 @@ function useClipboard({ timeout = 2000 }: UseClipboardProps) {
 
       return () => clearTimeout(timer);
     }
-  },[isCopied, timeout]);
+  }, [isCopied, timeout]);
 
   return {
     isCopied,

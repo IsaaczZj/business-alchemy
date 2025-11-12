@@ -1,15 +1,18 @@
+"use client";
 import { Post } from "contentlayer/generated";
 import PostCard from "./post-card";
-import { useRouter } from "next/router";
 import { Inbox } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Button } from "../ui/button";
+import { useEffect } from "react";
 
 export type PostListProps = {
-  posts:Post[]
-}
+  posts: Post[];
+};
 
-export default function PostList({posts}:PostListProps) {
-  const router = useRouter();
-  const q = router.query.q;
+export default function PostList({ posts }: PostListProps) {
+  const searchParams = useSearchParams();
+  const q = searchParams?.get("q") ?? "";
   const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(String(q).toLowerCase()),
   );

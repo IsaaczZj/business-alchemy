@@ -1,11 +1,15 @@
+
 import { cn } from "@/lib/utils";
-import { CircleX, Search, Target } from "lucide-react";
-import { useRouter } from "next/router";
-import { ChangeEvent, FormEvent, useCallback } from "react";
+import { CircleX, Search } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ChangeEvent, FormEvent, useCallback, useEffect, useRef } from "react";
 
 export default function PostSearchInput() {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
-  const query = (router.query.q as string) ?? "";
+  const searchParams = useSearchParams();
+  const query = searchParams?.get("q") ?? "";
+  const hasQuery = !!searchParams?.has("q");
 
   const handleSearchPost = useCallback(
     (e: FormEvent) => {
@@ -20,38 +24,45 @@ export default function PostSearchInput() {
   const handleQueryChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newQuery = e.target.value;
 
-    router.push(`/blog?q=${encodeURIComponent(newQuery)}`, undefined, {
-      shallow: true,
+    router.push(`/blog?q=${encodeURIComponent(newQuery)}`, {
       scroll: false,
     });
   };
 
   function handleClearInput() {
-    router.push("/blog", undefined, {
-      shallow: true,
+    router.push("/blog", {
       scroll: false,
     });
   }
 
+  useEffect(() => {
+    if(hasQuery){
+      inputRef.current?.focus()
+    }
+  },[hasQuery])
+
   return (
     <form className="group relative" onSubmit={handleSearchPost}>
-      <div className={cn(
-        "flex items-center justify-between rounded-md border transition-colors duration-200 md:max-w-xs",
-        query 
-          ? "border-blue-300 ring-1 ring-blue-300" 
-          : "border-gray-400 focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-300"
-      )}>
+      <div
+        className={cn(
+          "flex items-center justify-between rounded-md border transition-colors duration-200 md:max-w-xs",
+          query
+            ? "border-blue-300 ring-1 ring-blue-300"
+            : "border-gray-400 focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-300",
+        )}
+      >
         <Search
           className={cn(
             "ml-2 size-4 transition-colors duration-200",
-            query 
-              ? "text-blue-300" 
-              : "text-gray-300 group-focus-within:text-blue-300"
+            query
+              ? "text-blue-300"
+              : "text-gray-300 group-focus-within:text-blue-300",
           )}
         />
 
         <input
           type="text"
+          ref={inputRef}
           placeholder="Buscar"
           value={query}
           onChange={handleQueryChange}

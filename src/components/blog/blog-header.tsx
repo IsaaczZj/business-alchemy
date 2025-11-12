@@ -1,10 +1,12 @@
-import { useRouter } from "next/router";
+"use client";
+import { useSearchParams } from "next/navigation";
 import PostSearchInput from "./post-search-input";
 
 export default function BlogHeader() {
-  const router = useRouter();
-  const pageTitle = router.query.q
-    ? `Resultados de busca para ${router.query.q}`
+  const searchParams = useSearchParams();
+  const query = searchParams?.get("q") ?? "";
+  const pageTitle = query
+    ? `Resultados de busca para ${query}`
     : "Dicas e estratégias para impulsionar seu negócio";
 
   return (
@@ -15,7 +17,7 @@ export default function BlogHeader() {
         </span>
 
         <h1 className="max-w-xl text-start text-lg text-balance sm:text-2xl md:text-left md:text-5xl">
-          {router.query.q && pageTitle.length >= 50
+          {query && pageTitle.length >= 50
             ? `${pageTitle.slice(0, 50)}...`
             : pageTitle}
         </h1>
