@@ -1,6 +1,15 @@
 import BlogHeader from "@/components/blog/blog-header";
 import PostList from "@/components/blog/posts-list";
 import { allPosts } from "contentlayer/generated";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Dicas e estratégias para impulsionar seu negócio",
+  robots: "index, follow",
+};
+
+
 
 export default function Blog() {
   const sortedPosts = allPosts.sort(

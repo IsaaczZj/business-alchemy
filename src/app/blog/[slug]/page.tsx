@@ -7,12 +7,43 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useShare } from "@/hooks/use-share";
 import { allPosts } from "contentlayer/generated";
+import { Metadata } from "next";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Dicas e estratégias para impulsionar seu negócio",
+  robots: "index, follow",
+};
+interface PostPageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = allPosts.find((post) => post.slug === slug);
+
+  if (!post) {
+    return {};
+  }
+  return {
+    title: post.title,
+    description: post.description,
+    authors: [{ name: post.author.name }],
+    robots: "index, follow",
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      images: [post.image],
+      type: "article",
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -20,9 +51,6 @@ export async function generateStaticParams() {
   }));
 }
 
-interface PostPageProps {
-  params: Promise<{ slug: string }>;
-}
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
 
