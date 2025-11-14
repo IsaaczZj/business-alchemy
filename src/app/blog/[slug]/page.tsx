@@ -13,11 +13,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Dicas e estratégias para impulsionar seu negócio",
-  robots: "index, follow",
-};
 interface PostPageProps {
   params: Promise<{ slug: string }>;
 }

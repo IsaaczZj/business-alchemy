@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-
-
 export default function Blog() {
   const sortedPosts = allPosts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
